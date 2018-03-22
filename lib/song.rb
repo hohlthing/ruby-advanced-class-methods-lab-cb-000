@@ -2,10 +2,6 @@ class Song
   attr_accessor :name, :artist_name
   @@all = []
 
-  def self.all
-    @@all
-  end
-
   def save
     self.class.all << self
   end
@@ -25,6 +21,12 @@ class Song
   def self.find_by_name(name)
     @@all.detect { |x| x.name == name}
   end
+
+  def self.all
+    @@all
+  end
+
+
 
 
 end
