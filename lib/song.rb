@@ -11,22 +11,22 @@ class Song
   end
 
   def self.create
-    song = Song.new
+    song = self.new
     song.save
-#    song
+    song
   end
 
   def self.new_by_name(name)
-    song = Song.new
+    song = self.new
     song.name = name
-#    song
+    song
   end
 
   def self.create_by_name(name)
-    song = Song.new
+    song = self.new
     song.name = name
     song.save
-#    song
+    song
   end
 
   def self.find_by_name(name)
@@ -42,14 +42,21 @@ class Song
   end
 
   def self.new_from_filename(filename)
-
-
+    array = filename.split(" - ")
+    artist = array[0]
+    name = array[1]
+    song = self.new
+    song.name = name
+    song.artist_name = artist
+    song.save
+    song
 
   end
 
   def self.create_from_filename(filename)
     song = self.new_from_filename(filename)
     song.save
+    song
   end
 
   #  +
